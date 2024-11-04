@@ -44,9 +44,7 @@ public class Finder {
         // TODO: Complete the query() function!
         int keyHash = hash(key, key.length());
         for (int i = 0; i < hashMap.get(keyHash).size();i++){
-            if (hashMap.get(keyHash).get(i).getKey().equals(key)){
-                return hashMap.get(keyHash).get(i).getQuerie;
-            }
+
         }
 
 

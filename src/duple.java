@@ -1,8 +1,8 @@
 public class duple {
     private String key;
-    private String querie;
-    public duple(String key, String querie){
-        this.querie = querie;
+    private String value;
+    public duple(String key, String value){
+        this.value = value;
         this.key = key;
     }
 
@@ -10,8 +10,8 @@ public class duple {
         return key;
     }
 
-    public String getQuerie(){
-        return querie;
+    public String getValue(){
+        return value;
     }
 
 }
