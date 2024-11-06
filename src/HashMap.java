@@ -47,16 +47,42 @@ public class HashMap {
                 }
             }
         }
+        num_keys++;
+        if (num_keys > tablesize/2){
+            resize();
+        }
     }
 
     public void resize(){
-
+        tablesize *=2;
+        HashMap newMap = new HashMap();
+        for (int i =0; i < map.length; i++){
+            if (map[i] != null){
+                newMap.insert(map[i].getKey(),map[i].getValue());
+            }
+        }
+        map = newMap.map;
     }
 
-    public duple get(String key){
+    public String get(String key){
         int location = hash(key);
-        while (){
-
+        int orgLocation = location;
+        if (map[location].getKey().equals(key)){
+            return map[location].getValue();
+        }
+        else{
+            location++;
+            while (location !=orgLocation){
+                if (location == map.length){
+                    location = 0;
+                }
+                if (map[location].getKey().equals(key)){
+                    return map[location].getValue();
+                }
+                else{
+                    location++;
+                }
+            }
         }
         return null;
 

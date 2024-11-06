@@ -22,32 +22,29 @@ public class Finder {
 
     private static ArrayList<ArrayList> hashMap;
 
+    private HashMap map;
+
     public Finder() {}
 
     public void buildTable(BufferedReader br, int keyCol, int valCol) throws IOException {
         // TODO: Complete the buildTable() function!
         int currentHash;
         String[] splitString;
+        map = new HashMap();
         hashMap = new ArrayList<ArrayList>();
         while (br.readLine() != null){
             splitString = br.readLine().split(",");
-            currentHash = hash(splitString[keyCol], splitString[keyCol].length());
-            if (hashMap.get(currentHash) == null){
-                hashMap.add(currentHash, new ArrayList<duple>());
-            }
-            hashMap.get(currentHash).add(new duple(splitString[keyCol], splitString[valCol]));
+            map.insert(splitString[keyCol],splitString[valCol]);
         }
         br.close();
     }
 
     public String query(String key){
         // TODO: Complete the query() function!
-        int keyHash = hash(key, key.length());
-        for (int i = 0; i < hashMap.get(keyHash).size();i++){
 
+        if (map.get(key) != null){
+            return map.get(key);
         }
-
-
         return INVALID;
     }
 

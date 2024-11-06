@@ -8,6 +8,7 @@ Name: YOUR NAME HERE
 | October 30  |  9:45-10:00  |                                                                                                                                             Created new class duple for arraylist to store so I ca store but value and the key for in case of collisions |
 | October 30  |  9:50-10:50  |                                                                                                                  Working on my queirie function, but for some reason my duple class isn't working/maybe I messed up my arrays trying to fix and solve it |
 | Novemeber 4 | 12:50 - 1:30 | Created new class hashmaps to make finder easier. Created all the instance variables for finder. Decieded to stick with an a rray of duples instead of a keys and values array. Finished creating my insert method and started to work on the get method |
+| Novemeber 6 | 10:10- 10:30 |                                                                                                     finished doing resize and used the methods created in hashmaps to make finders make and queiries, but currently getting a stack overflow from resize |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.
