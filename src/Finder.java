@@ -14,13 +14,10 @@ import java.util.List;
 
 public class Finder {
 
-    private static final int radix = 256;
 
-    private static final int p = 10007;
+    private final int Default_Table_Size = 50000;
 
     private static final String INVALID = "INVALID KEY";
-
-    private static ArrayList<ArrayList> hashMap;
 
     private HashMap map;
 
@@ -30,33 +27,22 @@ public class Finder {
         // TODO: Complete the buildTable() function!
         int currentHash;
         String[] splitString;
-        map = new HashMap();
-        hashMap = new ArrayList<ArrayList>();
-        while (br.readLine() != null){
-            splitString = br.readLine().split(",");
-            map.insert(splitString[keyCol],splitString[valCol]);
+        String readLine = br.readLine();
+        map = new HashMap(Default_Table_Size);
+        while (readLine != null) {
+                splitString = readLine.split(",");
+                map.insert(splitString[keyCol], splitString[valCol]);
+                readLine = br.readLine();
         }
         br.close();
     }
 
     public String query(String key){
         // TODO: Complete the query() function!
-
         if (map.get(key) != null){
             return map.get(key);
         }
         return INVALID;
     }
 
-    private static int hash(String STR, int patLen){
-        int StrHash = 0;
-        for (int i = 0; i < patLen; i++){
-            StrHash = (radix * StrHash + STR.charAt(i)) % p;
-        }
-        return StrHash;
-    }
-
-    public void hashMap(){
-
-    }
 }

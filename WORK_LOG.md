@@ -9,6 +9,8 @@ Name: YOUR NAME HERE
 | October 30  |  9:50-10:50  |                                                                                                                  Working on my queirie function, but for some reason my duple class isn't working/maybe I messed up my arrays trying to fix and solve it |
 | Novemeber 4 | 12:50 - 1:30 | Created new class hashmaps to make finder easier. Created all the instance variables for finder. Decieded to stick with an a rray of duples instead of a keys and values array. Finished creating my insert method and started to work on the get method |
 | Novemeber 6 | 10:10- 10:30 |                                                                                                     finished doing resize and used the methods created in hashmaps to make finders make and queiries, but currently getting a stack overflow from resize |
+| November 7  |  8:00-8:30   |                                                                                                                   Fixed all bugs but now not getting right key match. Not too sure why, but trying to go through my get method to see if thats the issue |
+| November 7  |  8:30-9:00   |                                                                                     Found the bug turns out when I readline for my while loop it used on of the readlines so I was losing values now passes all, but test rpoducts where it's timing out |
 
 
 To add a new row to the table, click into a cell and then hit shift-enter.

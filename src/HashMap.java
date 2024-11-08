@@ -5,10 +5,10 @@ public class HashMap {
     private duple[] map ;
     private final int radix = 256;
 
-    public HashMap(){
-        map = new duple[Default_Table_Size];
+    public HashMap(int tablesize){
+        map = new duple[tablesize];
         num_keys =0;
-        tablesize = Default_Table_Size;
+        this.tablesize = tablesize;
     }
 
     public int hash(String key){
@@ -22,28 +22,24 @@ public class HashMap {
     public void insert(String key, String value){
         boolean isInserted = false;
         int location = hash(key);
-        if (map[location] == null){
-            map[location] = new duple(key, value);
+        while (location < map.length && !isInserted){
+            if (map[location] !=null){
+                location++;
+            }
+            else{
+                map[location] = new duple(key,value);
+                isInserted = true;
+            }
         }
-        else{
-            while (location < map.length && !isInserted){
+        if (!isInserted){
+            location = 0;
+            while (!isInserted){
                 if (map[location] !=null){
                     location++;
                 }
                 else{
                     map[location] = new duple(key,value);
                     isInserted = true;
-                }
-            }
-            if (!isInserted){
-                while (!isInserted){
-                    if (map[location] !=null){
-                        location++;
-                    }
-                    else{
-                        map[location] = new duple(key,value);
-                        isInserted = true;
-                    }
                 }
             }
         }
@@ -54,8 +50,8 @@ public class HashMap {
     }
 
     public void resize(){
-        tablesize *=2;
-        HashMap newMap = new HashMap();
+        tablesize = tablesize*2;
+        HashMap newMap = new HashMap(tablesize);
         for (int i =0; i < map.length; i++){
             if (map[i] != null){
                 newMap.insert(map[i].getKey(),map[i].getValue());
@@ -67,23 +63,26 @@ public class HashMap {
     public String get(String key){
         int location = hash(key);
         int orgLocation = location;
-        if (map[location].getKey().equals(key)){
+        if (map[location] == null){
+            location++;
+        }
+        else if (map[location].getKey().equals(key)){
             return map[location].getValue();
         }
         else{
             location++;
-            while (location !=orgLocation){
-                if (location == map.length){
-                    location = 0;
-                }
-                if (map[location].getKey().equals(key)){
-                    return map[location].getValue();
-                }
-                else{
-                    location++;
+                while (location != orgLocation){
+                    if (location == map.length){
+                        location = 0;
+                    }
+                    else if (map[location] != null && map[location].getKey().equals(key)){
+                        return map[location].getValue();
+                    }
+                    else{
+                        location++;
+                    }
                 }
             }
-        }
         return null;
 
     }
