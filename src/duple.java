@@ -6,10 +6,12 @@ public class duple {
         this.key = key;
     }
 
+    //return Key
     public String getKey(){
         return key;
     }
 
+    //return Value
     public String getValue(){
         return value;
     }

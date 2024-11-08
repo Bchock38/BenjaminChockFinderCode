@@ -25,10 +25,11 @@ public class Finder {
 
     public void buildTable(BufferedReader br, int keyCol, int valCol) throws IOException {
         // TODO: Complete the buildTable() function!
-        int currentHash;
+
         String[] splitString;
         String readLine = br.readLine();
         map = new HashMap(Default_Table_Size);
+        //while there are more keys to add to hash add them
         while (readLine != null) {
                 splitString = readLine.split(",");
                 map.insert(splitString[keyCol], splitString[valCol]);
@@ -39,6 +40,7 @@ public class Finder {
 
     public String query(String key){
         // TODO: Complete the query() function!
+        //if key has a matching value in map return it otherwise return false
         if (map.get(key) != null){
             return map.get(key);
         }
